@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import RevealLayer from './RevealLayer'
-import CategoryCarousel from './CategoryCarousel'
 
 const BG_IMAGE_1 = 'https://esquimal.mx/web/image/2039601-2b89a1dc/imagen-sin-esquimal-26.webp'
 const BG_IMAGE_2 = 'https://esquimal.mx/web/image/2039602-a2f5f486/imagen-con-esquimal-26.webp'
@@ -20,7 +19,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#000', letterSpacing: '-0.02em', fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ minHeight: '100vh', backgroundColor: '#fff', letterSpacing: '-0.02em', fontFamily: "'Inter', sans-serif" }}>
       <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between p-4 sm:p-5">
         <div className="flex items-center gap-2">
           <img
@@ -101,7 +100,7 @@ export default function HeroSection() {
         </div>
       )}
 
-      <section className="relative w-full overflow-hidden bg-black" style={{ height: '85dvh' }}>
+      <section className="relative w-full overflow-hidden h-screen bg-black" style={{ height: '100dvh' }}>
         <div className="absolute inset-0 hero-zoom">
           <div
             className="absolute inset-0 bg-center bg-cover bg-no-repeat"
@@ -134,8 +133,6 @@ export default function HeroSection() {
           </a>
         </div>
       </section>
-
-      <CategoryCarousel />
     </div>
   )
 }
