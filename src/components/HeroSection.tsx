@@ -67,6 +67,7 @@ export default function HeroSection() {
 
       {showHint && (
         <div className="fixed inset-0 z-[200] md:hidden flex items-center justify-center p-6 pointer-events-none">
+          <div className="absolute inset-0 bg-black/70" />
           <div className="pointer-events-auto relative w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl hero-anim hero-fade">
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -100,14 +101,15 @@ export default function HeroSection() {
       )}
 
       <section className="relative w-full overflow-hidden h-screen bg-black" style={{ height: '100dvh' }}>
-        <div
-          className="absolute inset-0 bg-center bg-cover bg-no-repeat hero-zoom"
-          style={{ backgroundImage: `url(${BG_IMAGE_1})`, zIndex: 10 }}
-        />
+        <div className="absolute inset-0 hero-zoom">
+          <div
+            className="absolute inset-0 bg-center bg-cover bg-no-repeat"
+            style={{ backgroundImage: `url(${BG_IMAGE_1})`, zIndex: 10 }}
+          />
+          <RevealLayer image={BG_IMAGE_2} />
+        </div>
 
-        <RevealLayer image={BG_IMAGE_2} />
-
-        <div className="absolute top-[14%] left-0 right-0 flex flex-col items-center text-center px-5 pointer-events-none" style={{ zIndex: 50 }}>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-5 pointer-events-none" style={{ zIndex: 50 }}>
           <h1 className="text-white leading-[0.95]">
             <span
               className="block font-playfair italic font-normal text-4xl sm:text-6xl md:text-7xl hero-anim hero-reveal"
