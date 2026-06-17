@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import RevealLayer from './RevealLayer'
 
-const BG_IMAGE_1 = 'https://esquimal.mx/web/image/2039601-2b89a1dc/imagen-sin-esquimal-26.webp'
-const BG_IMAGE_2 = 'https://esquimal.mx/web/image/2039602-a2f5f486/imagen-con-esquimal-26.webp'
+const BG_IMAGE_1 = 'https://esquimal.mx/web/image/2039736-4f5eda55/imagen-sin-esquimal-26-xt.webp'
+const BG_IMAGE_2 = 'https://esquimal.mx/web/image/2039737-9c4ca1d9/imagen-con-esquimal-26-xt.webp'
 
 export default function HeroSection() {
   const [mobileOpen, setMobileOpen] = useState(false)
