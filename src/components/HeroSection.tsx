@@ -20,7 +20,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'transparent', letterSpacing: '-0.02em', fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ minHeight: '100vh', backgroundColor: '#000', letterSpacing: '-0.02em', fontFamily: "'Inter', sans-serif" }}>
       <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between p-4 sm:p-5">
         <div className="flex items-center gap-2">
           <img
@@ -101,7 +101,7 @@ export default function HeroSection() {
         </div>
       )}
 
-      <section className="relative w-full overflow-hidden bg-black" style={{ height: '65dvh' }}>
+      <section className="relative w-full overflow-hidden bg-black" style={{ height: '85dvh' }}>
         <div className="absolute inset-0 hero-zoom">
           <div
             className="absolute inset-0 bg-center bg-cover bg-no-repeat"

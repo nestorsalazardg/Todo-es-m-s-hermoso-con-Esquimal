@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef } from 'react'
 
 const categories = [
   { name: 'Recámara', image: 'https://esquimal.mx/web/image/934008-c6eb7fbf/Rec%C3%A1mara-Esquimal-4.webp', href: 'https://esquimal.mx/shop/category/recamara-2' },
@@ -11,74 +11,56 @@ const categories = [
 
 export default function CategoryCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
 
-  useEffect(() => {
+  const scroll = (dir: 'left' | 'right') => {
     const el = scrollRef.current
     if (!el) return
-    let raf = 0
-    const update = () => {
-      const cx = el.scrollLeft + el.clientWidth / 2
-      const cards = Array.from(el.children) as HTMLElement[]
-      let closest = 0
-      let min = Infinity
-      cards.forEach((card, i) => {
-        const cc = card.offsetLeft + card.offsetWidth / 2
-        const d = Math.abs(cc - cx)
-        if (d < min) { min = d; closest = i }
-      })
-      setActiveIndex(closest)
-    }
-    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update) }
-    el.addEventListener('scroll', onScroll, { passive: true })
-    update()
-    return () => { el.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf) }
-  }, [])
-
-  const scrollTo = (i: number) => {
-    const el = scrollRef.current
-    const child = el?.children[i] as HTMLElement | undefined
-    if (!el || !child) return
-    el.scrollTo({ left: child.offsetLeft + child.offsetWidth / 2 - el.clientWidth / 2, behavior: 'smooth' })
+    const card = el.children[0] as HTMLElement
+    const w = (card?.offsetWidth ?? 280) + 16
+    el.scrollBy({ left: dir === 'left' ? -w : w, behavior: 'smooth' })
   }
 
   return (
-    <section className="w-full bg-white rounded-t-[2rem] shadow-[0_-4px_20px_rgba(0,0,0,0.06)]" style={{ height: '35dvh' }}>
-      <div className="h-full flex flex-col justify-center overflow-hidden px-4 sm:px-6">
+    <section className="w-full bg-black py-6 md:py-10">
+      <div className="relative max-w-7xl mx-auto px-4">
         <div
           ref={scrollRef}
-          className="flex items-center gap-5 sm:gap-7 md:gap-10 overflow-x-auto scrollbar-hide py-4"
+          className="flex gap-4 overflow-x-auto scrollbar-hide"
           style={{ scrollSnapType: 'x mandatory' }}
         >
-          {categories.map((cat, i) => {
-            const active = i === activeIndex
-            return (
-              <a
-                key={cat.name}
-                href={cat.href}
-                className="flex flex-col items-center gap-3 flex-shrink-0 transition-all duration-300 cursor-pointer"
-                style={{
-                  scrollSnapAlign: 'center',
-                  transform: active ? 'scale(1)' : 'scale(0.78)',
-                  opacity: active ? 1 : 0.45,
-                }}
-                onClick={(e) => {
-                  if (i !== activeIndex) { e.preventDefault(); scrollTo(i) }
-                }}
-              >
-                <div className="w-[88px] h-[88px] sm:w-[104px] sm:h-[104px] md:w-[116px] md:h-[116px] rounded-full overflow-hidden border-2 border-gray-100 shadow-md transition-all duration-300">
-                  <div
-                    className="w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: `url(${cat.image})` }}
-                  />
-                </div>
-                <span className={`text-xs sm:text-sm font-medium whitespace-nowrap transition-colors duration-300 ${active ? 'text-gray-900' : 'text-gray-400'}`}>
-                  {cat.name}
-                </span>
-              </a>
-            )
-          })}
+          {categories.map((cat) => (
+            <a
+              key={cat.name}
+              href={cat.href}
+              className="group relative flex-shrink-0 w-[200px] sm:w-[240px] md:w-[280px] h-[260px] sm:h-[300px] md:h-[340px] rounded-2xl overflow-hidden"
+              style={{ scrollSnapAlign: 'start' }}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                style={{ backgroundImage: `url(${cat.image})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-white text-lg sm:text-xl font-medium">{cat.name}</h3>
+              </div>
+            </a>
+          ))}
         </div>
+
+        <button
+          className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/15 backdrop-blur-md border border-white/25 items-center justify-center text-white hover:bg-white/25 transition-all"
+          onClick={() => scroll('left')}
+          aria-label="Anterior"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+        </button>
+        <button
+          className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/15 backdrop-blur-md border border-white/25 items-center justify-center text-white hover:bg-white/25 transition-all"
+          onClick={() => scroll('right')}
+          aria-label="Siguiente"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+        </button>
       </div>
     </section>
   )
