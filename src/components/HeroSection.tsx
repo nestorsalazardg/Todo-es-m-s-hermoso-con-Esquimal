@@ -109,7 +109,7 @@ export default function HeroSection() {
           <RevealLayer image={BG_IMAGE_2} />
         </div>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-5 pointer-events-none" style={{ zIndex: 50 }}>
+        <div className="absolute inset-0 flex flex-col items-center justify-between md:justify-center text-center px-5 pointer-events-none pt-16 pb-10 md:pt-0 md:pb-0" style={{ zIndex: 50 }}>
           <h1 className="text-white leading-[0.95]">
             <span
               className="block font-playfair italic font-normal text-4xl sm:text-6xl md:text-7xl hero-anim hero-reveal"
@@ -126,7 +126,7 @@ export default function HeroSection() {
           </h1>
           <a
             href="https://esquimal.mx"
-            className="mt-6 sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
+            className="md:mt-6 md:sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
             style={{ animationDelay: '0.85s' }}
           >
             Ir a la tienda
