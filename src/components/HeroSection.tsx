@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import RevealLayer from './RevealLayer'
 
-const BG_IMAGE_1 = 'https://esquimal.mx/web/image/2039546-333dab44/sin-esquimal-26.webp'
-const BG_IMAGE_2 = 'https://esquimal.mx/web/image/2039547-89972c41/con-esquimall.webp'
+const BG_IMAGE_1 = 'https://esquimal.mx/web/image/2039566-9736f298/landing-sin-esquimal-26.webp'
+const BG_IMAGE_2 = 'https://esquimal.mx/web/image/2039567-1dca92eb/landing-con-esquimall.webp'
 
 export default function HeroSection() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -63,13 +63,13 @@ export default function HeroSection() {
         <div className="absolute top-[14%] left-0 right-0 flex flex-col items-center text-center px-5 pointer-events-none" style={{ zIndex: 50 }}>
           <h1 className="text-white leading-[0.95]">
             <span
-              className="block font-playfair italic font-normal text-5xl sm:text-7xl md:text-8xl hero-anim hero-reveal"
+              className="block font-playfair italic font-normal text-4xl sm:text-6xl md:text-7xl hero-anim hero-reveal"
               style={{ letterSpacing: '-0.05em', animationDelay: '0.25s' }}
             >
               Espacios más hermosos
             </span>
             <span
-              className="block font-normal text-5xl sm:text-7xl md:text-8xl -mt-1 hero-anim hero-reveal"
+              className="block font-normal text-4xl sm:text-6xl md:text-7xl -mt-1 hero-anim hero-reveal"
               style={{ letterSpacing: '-0.08em', animationDelay: '0.42s' }}
             >
               con Esquimal
@@ -80,7 +80,7 @@ export default function HeroSection() {
           </p>
           <a
             href="https://esquimal.mx"
-            className="mt-6 sm:mt-8 bg-[#424556] hover:bg-[#353845] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#424556]/30 pointer-events-auto hero-anim hero-fade"
+            className="mt-6 sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
             style={{ animationDelay: '0.85s' }}
           >
             Comprar
