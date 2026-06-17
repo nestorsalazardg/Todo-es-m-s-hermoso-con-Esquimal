@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import RevealLayer from './RevealLayer'
 
 const BG_IMAGE_1 = 'https://esquimal.mx/web/image/2039546-333dab44/sin-esquimal-26.webp'
 const BG_IMAGE_2 = 'https://esquimal.mx/web/image/2039547-89972c41/con-esquimall.webp'
 
 export default function HeroSection() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#fff', letterSpacing: '-0.02em', fontFamily: "'Inter', sans-serif" }}>
       <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between p-4 sm:p-5">
@@ -22,15 +25,32 @@ export default function HeroSection() {
           <a href="https://esquimal.mx/shop" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">MÁS</a>
         </div>
         <div className="flex items-center gap-3">
-          <button className="md:hidden text-white p-2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
+          <button className="md:hidden text-white p-2" onClick={() => setMobileOpen((v) => !v)} aria-label="Menú">
+            {mobileOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            )}
           </button>
         </div>
       </nav>
+
+      {mobileOpen && (
+        <div className="fixed z-[99] md:hidden inset-0 top-16 bg-black/80 backdrop-blur-md flex flex-col items-center gap-4 pt-8">
+          <a href="https://esquimal.mx/shop" className="text-white text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>EDREDONES Y COBERTORES</a>
+          <a href="https://esquimal.mx/shop" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>SÁBANAS</a>
+          <a href="https://esquimal.mx/shop" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>VENTILADORES</a>
+          <a href="https://esquimal.mx/shop" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>ESQUIMALITO</a>
+          <a href="https://esquimal.mx/shop" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>MÁS</a>
+        </div>
+      )}
 
       <section className="relative w-full overflow-hidden h-screen bg-black" style={{ height: '100dvh' }}>
         <div

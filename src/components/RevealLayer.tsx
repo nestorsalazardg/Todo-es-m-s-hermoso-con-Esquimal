@@ -67,7 +67,15 @@ export default function RevealLayer({ image }: { image: string }) {
       mouseRef.current.x = e.clientX
       mouseRef.current.y = e.clientY
     }
-    const handleTouch = (e: TouchEvent) => {
+    const handleTouchStart = (e: TouchEvent) => {
+      const t = e.touches[0]
+      if (t) {
+        mouseRef.current.x = t.clientX
+        mouseRef.current.y = t.clientY
+      }
+    }
+    const handleTouchMove = (e: TouchEvent) => {
+      e.preventDefault()
       const t = e.touches[0]
       if (t) {
         mouseRef.current.x = t.clientX
@@ -76,8 +84,8 @@ export default function RevealLayer({ image }: { image: string }) {
     }
 
     window.addEventListener('mousemove', handleMouse)
-    window.addEventListener('touchmove', handleTouch, { passive: false })
-    window.addEventListener('touchstart', handleTouch, { passive: false })
+    window.addEventListener('touchmove', handleTouchMove, { passive: false })
+    window.addEventListener('touchstart', handleTouchStart, { passive: false })
 
     const animate = () => {
       const s = smoothRef.current
@@ -92,8 +100,8 @@ export default function RevealLayer({ image }: { image: string }) {
 
     return () => {
       window.removeEventListener('mousemove', handleMouse)
-      window.removeEventListener('touchmove', handleTouch)
-      window.removeEventListener('touchstart', handleTouch)
+      window.removeEventListener('touchmove', handleTouchMove)
+      window.removeEventListener('touchstart', handleTouchStart)
       cancelAnimationFrame(rafRef.current)
     }
   }, [])
