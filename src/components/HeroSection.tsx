@@ -109,7 +109,7 @@ export default function HeroSection() {
           <RevealLayer image={BG_IMAGE_2} />
         </div>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-between md:justify-center text-center px-5 pointer-events-none pt-16 pb-10 md:pt-0 md:pb-0" style={{ zIndex: 50 }}>
+        <div className="absolute inset-0 flex flex-col items-center justify-between md:justify-center text-center px-5 pointer-events-none pt-32 pb-10 md:pt-0 md:pb-0" style={{ zIndex: 50 }}>
           <h1 className="text-white leading-[0.95]">
             <span
               className="block font-playfair italic font-normal text-4xl sm:text-6xl md:text-7xl hero-anim hero-reveal"
