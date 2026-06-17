@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import RevealLayer from './RevealLayer'
 
 const BG_IMAGE_1 = 'https://esquimal.mx/web/image/2039601-2b89a1dc/imagen-sin-esquimal-26.webp'
@@ -6,6 +6,17 @@ const BG_IMAGE_2 = 'https://esquimal.mx/web/image/2039602-a2f5f486/imagen-con-es
 
 export default function HeroSection() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [showHint, setShowHint] = useState(true)
+
+  useEffect(() => {
+    const isTouch = 'ontouchstart' in window
+    if (!isTouch) {
+      setShowHint(false)
+      return
+    }
+    const timer = setTimeout(() => setShowHint(false), 7000)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#fff', letterSpacing: '-0.02em', fontFamily: "'Inter', sans-serif" }}>
@@ -18,11 +29,12 @@ export default function HeroSection() {
           />
         </div>
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-2 py-2 items-center gap-1">
-          <a href="https://esquimal.mx/shop" className="text-white text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap">EDREDONES Y COBERTORES</a>
-          <a href="https://esquimal.mx/shop" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">SÁBANAS</a>
-          <a href="https://esquimal.mx/shop" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">VENTILADORES</a>
-          <a href="https://esquimal.mx/shop" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">ESQUIMALITO</a>
-          <a href="https://esquimal.mx/shop" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">MÁS</a>
+          <a href="https://esquimal.mx/shop/category/recamara-2" className="text-white text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap">Recámara</a>
+          <a href="https://esquimal.mx/shop/category/decoracion-5" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Decoración</a>
+          <a href="https://esquimal.mx/shop/category/hogar-6" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Hogar</a>
+          <a href="https://esquimal.mx/shop/category/infantil-7" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Infantil</a>
+          <a href="https://esquimal.mx/shop/category/mascota-76" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Mascota</a>
+          <a href="https://esquimal.mx/shop?tags=53" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Novedades</a>
         </div>
         <div className="flex items-center gap-3">
           <button className="md:hidden text-white p-2" onClick={() => setMobileOpen((v) => !v)} aria-label="Menú">
@@ -44,11 +56,46 @@ export default function HeroSection() {
 
       {mobileOpen && (
         <div className="fixed z-[99] md:hidden inset-0 top-16 bg-black/80 backdrop-blur-md flex flex-col items-center gap-4 pt-8">
-          <a href="https://esquimal.mx/shop" className="text-white text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>EDREDONES Y COBERTORES</a>
-          <a href="https://esquimal.mx/shop" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>SÁBANAS</a>
-          <a href="https://esquimal.mx/shop" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>VENTILADORES</a>
-          <a href="https://esquimal.mx/shop" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>ESQUIMALITO</a>
-          <a href="https://esquimal.mx/shop" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>MÁS</a>
+          <a href="https://esquimal.mx/shop/category/recamara-2" className="text-white text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Recámara</a>
+          <a href="https://esquimal.mx/shop/category/decoracion-5" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Decoración</a>
+          <a href="https://esquimal.mx/shop/category/hogar-6" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Hogar</a>
+          <a href="https://esquimal.mx/shop/category/infantil-7" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Infantil</a>
+          <a href="https://esquimal.mx/shop/category/mascota-76" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Mascota</a>
+          <a href="https://esquimal.mx/shop?tags=53" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Novedades</a>
+        </div>
+      )}
+
+      {showHint && (
+        <div className="fixed inset-0 z-[200] md:hidden flex items-center justify-center p-6 pointer-events-none">
+          <div className="pointer-events-auto relative w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl hero-anim hero-fade">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: 'url(https://esquimal.mx/web/image/2013112-6e1d1bd3/esquimal-inspo-02.webp)' }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+            <div className="relative z-10 flex flex-col items-center text-center px-8 pt-16 pb-8">
+              <button
+                className="absolute top-3 right-3 text-white/70 hover:text-white transition-colors"
+                onClick={() => setShowHint(false)}
+                aria-label="Cerrar"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+              <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-5 border border-white/30">
+                <img
+                  src="https://esquimal.mx/web/image/2039609-6a6bd72a/icono-desplazar.webp"
+                  alt="Deslizar"
+                  className="w-9 h-9 brightness-0 invert"
+                />
+              </div>
+              <p className="text-white text-xl sm:text-2xl font-medium leading-snug">
+                Desliza el dedo en la pantalla para descubrir
+              </p>
+            </div>
+          </div>
         </div>
       )}
 
@@ -75,15 +122,12 @@ export default function HeroSection() {
               con Esquimal
             </span>
           </h1>
-          <p className="mt-6 sm:mt-8 max-w-[400px] sm:max-w-[500px] text-base sm:text-lg md:text-xl text-white/80 leading-relaxed hero-anim hero-fade" style={{ animationDelay: '0.7s' }}>
-            Pasa de lo ordinario a lo extraordinario. Con Esquimal, transforma tu habitación en un espacio lleno de vida, estilo y el confort que mereces.
-          </p>
           <a
             href="https://esquimal.mx"
             className="mt-6 sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
             style={{ animationDelay: '0.85s' }}
           >
-            Comprar
+            Ir a la tienda
           </a>
         </div>
       </section>
