@@ -20,7 +20,7 @@ export default function HeroSection() {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#fff', letterSpacing: '-0.02em', fontFamily: "'Inter', sans-serif" }}>
-      <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between p-4 sm:p-5">
+      <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-center md:justify-between p-4 sm:p-5">
         <div className="flex items-center gap-2">
           <img
             src="https://esquimal.mx/web/image/website/2/logo/Web%20Esquimal?unique=3d50266"
@@ -41,12 +41,12 @@ export default function HeroSection() {
       {mobileOpen && (
         <div className="fixed z-[99] md:hidden inset-0 top-16 bg-black/80 backdrop-blur-md flex flex-col items-center">
           <div className="flex-1 flex flex-col items-center justify-center gap-4">
-            <a href="https://esquimal.mx/shop/category/recamara-2" className="text-white text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Recámara</a>
-            <a href="https://esquimal.mx/shop/category/decoracion-5" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Decoración</a>
-            <a href="https://esquimal.mx/shop/category/hogar-6" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Hogar</a>
-            <a href="https://esquimal.mx/shop/category/infantil-7" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Infantil</a>
-            <a href="https://esquimal.mx/shop/category/mascota-76" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Mascota</a>
-            <a href="https://esquimal.mx/shop?tags=53" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Novedades</a>
+            <a href="https://esquimal.mx/shop/category/recamara-2" className="text-white text-lg font-medium px-8 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 transition-all active:scale-95" onClick={() => setMobileOpen(false)}>Recámara</a>
+            <a href="https://esquimal.mx/shop/category/decoracion-5" className="text-white/80 text-lg font-medium px-8 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 transition-all active:scale-95" onClick={() => setMobileOpen(false)}>Decoración</a>
+            <a href="https://esquimal.mx/shop/category/hogar-6" className="text-white/80 text-lg font-medium px-8 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 transition-all active:scale-95" onClick={() => setMobileOpen(false)}>Hogar</a>
+            <a href="https://esquimal.mx/shop/category/infantil-7" className="text-white/80 text-lg font-medium px-8 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 transition-all active:scale-95" onClick={() => setMobileOpen(false)}>Infantil</a>
+            <a href="https://esquimal.mx/shop/category/mascota-76" className="text-white/80 text-lg font-medium px-8 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 transition-all active:scale-95" onClick={() => setMobileOpen(false)}>Mascota</a>
+            <a href="https://esquimal.mx/shop?tags=53" className="text-white/80 text-lg font-medium px-8 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 transition-all active:scale-95" onClick={() => setMobileOpen(false)}>Novedades</a>
           </div>
           <div className="pb-10">
             <button
