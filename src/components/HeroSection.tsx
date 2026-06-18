@@ -19,7 +19,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#fff', letterSpacing: '-0.02em', fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ minHeight: '100vh', backgroundColor: '#000', letterSpacing: '-0.02em', fontFamily: "'Inter', sans-serif" }}>
       <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-center md:justify-between p-4 sm:p-5">
         <div className="flex items-center gap-2">
           <img
