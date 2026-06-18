@@ -49,8 +49,8 @@ export default function RevealLayer({ image }: { image: string }) {
     }
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
       draw()
     }
     resize()
