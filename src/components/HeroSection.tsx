@@ -126,7 +126,7 @@ export default function HeroSection() {
           </h1>
           <a
             href="https://esquimal.mx"
-            className="md:mt-6 md:sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
+            className="w-full md:w-auto md:mt-6 md:sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
             style={{ animationDelay: '0.85s' }}
           >
             Ir a la tienda
