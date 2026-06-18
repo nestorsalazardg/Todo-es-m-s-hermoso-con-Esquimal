@@ -29,7 +29,7 @@ export default function HeroSection() {
           />
         </div>
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-2 py-2 items-center gap-1">
-          <a href="https://esquimal.mx/shop/category/recamara-2" className="text-white text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap">Recámara</a>
+          <a href="https://esquimal.mx/shop/category/recamara-2" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Recámara</a>
           <a href="https://esquimal.mx/shop/category/decoracion-5" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Decoración</a>
           <a href="https://esquimal.mx/shop/category/hogar-6" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Hogar</a>
           <a href="https://esquimal.mx/shop/category/infantil-7" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Infantil</a>
