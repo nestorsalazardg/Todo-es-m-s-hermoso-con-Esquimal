@@ -40,6 +40,16 @@ export default function HeroSection() {
 
       {mobileOpen && (
         <div className="fixed z-[99] md:hidden inset-0 top-16 bg-black/80 backdrop-blur-md flex flex-col items-center gap-4 pt-8">
+          <button
+            className="absolute top-4 right-5 text-white/70 hover:text-white transition-colors"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Cerrar menú"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
           <a href="https://esquimal.mx/shop/category/recamara-2" className="text-white text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Recámara</a>
           <a href="https://esquimal.mx/shop/category/decoracion-5" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Decoración</a>
           <a href="https://esquimal.mx/shop/category/hogar-6" className="text-white/80 text-lg font-medium px-6 py-3" onClick={() => setMobileOpen(false)}>Hogar</a>
@@ -111,7 +121,7 @@ export default function HeroSection() {
           <div className="flex items-center gap-3 w-full md:w-auto">
             <a
               href="https://esquimal.mx"
-              className="flex-1 md:flex-none md:w-auto md:mt-6 md:sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
+              className="flex-1 md:flex-none md:w-auto md:mt-6 md:sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 h-12 inline-flex items-center justify-center rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
               style={{ animationDelay: '0.85s' }}
             >
               Ir a la tienda
