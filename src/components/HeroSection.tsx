@@ -36,22 +36,6 @@ export default function HeroSection() {
           <a href="https://esquimal.mx/shop/category/mascota-76" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Mascota</a>
           <a href="https://esquimal.mx/shop?tags=53" className="text-white/80 text-sm font-medium px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-white/20 hover:text-white transition-colors">Novedades</a>
         </div>
-        <div className="flex items-center gap-3">
-          <button className="md:hidden text-white p-2" onClick={() => setMobileOpen((v) => !v)} aria-label="Menú">
-            {mobileOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
-            )}
-          </button>
-        </div>
       </nav>
 
       {mobileOpen && (
@@ -124,13 +108,33 @@ export default function HeroSection() {
               con Esquimal
             </span>
           </h1>
-          <a
-            href="https://esquimal.mx"
-            className="w-full md:w-auto md:mt-6 md:sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
-            style={{ animationDelay: '0.85s' }}
-          >
-            Ir a la tienda
-          </a>
+          <div className="flex items-center gap-3 w-full md:w-auto">
+            <a
+              href="https://esquimal.mx"
+              className="flex-1 md:flex-none md:w-auto md:mt-6 md:sm:mt-8 bg-[#2a3440] hover:bg-[#1f2833] text-white text-sm font-medium px-7 py-3 rounded-full transition-all hover:scale-[1.03] active:scale-95 hover:shadow-lg hover:shadow-[#2a3440]/30 pointer-events-auto hero-anim hero-fade"
+              style={{ animationDelay: '0.85s' }}
+            >
+              Ir a la tienda
+            </a>
+            <button
+              className="md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white transition-all active:scale-95 pointer-events-auto flex-shrink-0"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label="Menú"
+            >
+              {mobileOpen ? (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              ) : (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </section>
     </div>
